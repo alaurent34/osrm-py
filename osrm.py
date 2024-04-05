@@ -133,7 +133,7 @@ class BaseRequest:
         return 'true' if value else 'false'
 
     def _encode_pairs(self, coordinates):
-        return ';'.join([','.join(map(str, coord)) for coord in coordinates])
+        return ';'.join([','.join(map('{.10f}.format', coord)) for coord in coordinates])
 
     def decode_response(self, url, status, response):
         if status == 200:
